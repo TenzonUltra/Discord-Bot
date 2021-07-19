@@ -1,4 +1,6 @@
 {
     "prefix": "$",
-    "token" : "ODQ0MTA0MzQ0Nzk3MzE1MDkz.YKNjbg.9ISrZvGqmdsiqRTCNMTK-D2OHzE"
+    "token" : "Insert your Token here",
+    "mongoPath": "mongo path here",
+    "redisPath": "redis path here"
 }
