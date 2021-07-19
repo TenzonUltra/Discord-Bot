@@ -1,7 +1,7 @@
 # Discord-Bot
  Same-chan is an all purpose Discord bot that allows you easily manage your discord server along with other features such as playing music, manipulating sound audio and more!
  
- You can invite the bot to to your server using this :- https://discord.com/api/oauth2/authorize?client_id=844104344797315093&permissions=8&scope=bot
+ You can invite the bot to to your server using this :- [Invite Link](https://discord.com/api/oauth2/authorize?client_id=844104344797315093&permissions=8&scope=bot)
  
  You can also self-host the bot on your own server following the configuration guide below. Have fun!
  
