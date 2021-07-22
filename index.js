@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+const { message_increm } = require('./functions/message_increm');
 const Client = require('./client/Client');
 const{
   prefix,
@@ -41,12 +42,14 @@ client.once('disconnect', () => {
 
 client.on('message', async message => {
   if(message.author.bot) return;
+  message_increm(message);
 	if(!message.content.startsWith(prefix)) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const commandName = args.shift().toLowerCase();
   const command = client.commands.get(commandName);
   if(!command)return;
+
 
   try{
     command.execute(message,args);
@@ -57,6 +60,12 @@ client.on('message', async message => {
     .then(msg => msg.delete({ timeout: 5000 }));
     return message.react("❌");
   }
+
+  
+});
+
+client.on('guildMemberAdd', (member) => {
+  client.commands.get('welcome').onJoin(member);
 });
 
 client.login(token);
