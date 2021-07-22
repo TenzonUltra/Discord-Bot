@@ -16,6 +16,8 @@ async function message_increm(message) {
             try {
                 const result = await messageCountSchema.findOne({   _id: id} );
                 cache[id] = data = result.messageCount;
+            } catch(error) {
+              cache[id] = data = 0;
             } finally {
             mongoose.connection.close()
             }
@@ -23,6 +25,10 @@ async function message_increm(message) {
     }
 
     cache[id] = data + 1;
+};
+
+async function user_cnt(id) {
+    return cache[id]?cache[id]:0;
 };
 
 setInterval(async () => {
@@ -54,5 +60,7 @@ setInterval(async () => {
 }, 20000);
 
 
-
-return module.exports.message_increm = message_increm;
+module.exports = {
+  message_increm: message_increm,
+  user_cnt: user_cnt,
+};
